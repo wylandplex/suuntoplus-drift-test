@@ -1,0 +1,71 @@
+{
+  "name": "Drift Test",
+  "description": "Cardiac decoupling test — MFA drift analysis",
+  "version": "1.0",
+  "author": "skyfi",
+  "modificationTime": 1773183600,
+  "type": "feature",
+  "usage": "workout",
+  "in": [
+    {
+      "name": "Speed",
+      "source": "/Activity/Move/-1/Speed/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "Power",
+      "source": "/Activity/Move/-1/Power/Current",
+      "type": "subscribe"
+    },
+    {
+      "name": "Heartrate",
+      "source": "/Activity/Move/-1/Heartrate/Current",
+      "type": "subscribe"
+    }
+  ],
+  "out": [
+    { "name": "driftPct" },
+    { "name": "countdown" },
+    { "name": "phase" },
+    { "name": "status" },
+    { "name": "efMetric" },
+    { "name": "mafDisplay" }
+  ],
+  "template": [
+    { "name": "main.html" }
+  ],
+  "settings": [
+    {
+      "shownName": "Mode (0=Run, 1=Bike)",
+      "path": "appSettings.testMode",
+      "type": "int",
+      "min": 0,
+      "max": 1,
+      "inputType": "slider"
+    },
+    {
+      "shownName": "Warmup (min)",
+      "path": "appSettings.warmupDuration",
+      "type": "int",
+      "min": 5,
+      "max": 30,
+      "inputType": "slider"
+    },
+    {
+      "shownName": "Test Duration (min)",
+      "path": "appSettings.testDuration",
+      "type": "int",
+      "min": 20,
+      "max": 120,
+      "inputType": "slider"
+    },
+    {
+      "shownName": "MAF Target (bpm)",
+      "path": "appSettings.mafTarget",
+      "type": "int",
+      "min": 100,
+      "max": 180,
+      "inputType": "slider"
+    }
+  ]
+}

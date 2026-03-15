@@ -1,0 +1,55 @@
+<uiView>
+  <div id="drifttest">
+
+    <!-- Title bar with phase -->
+    <div class="cm-fg" style="width:100%;height:20%">
+      <div class="cm-mid" style="top:calc(28% - 50%e); left:calc(50% - 50%e); font-size: 12px;">DRIFT TEST</div>
+      <div id="phaseLabel" style="top:calc(72% - 50%e); left:calc(50% - 50%e); font-size: 17px;">WARMUP</div>
+    </div>
+
+    <!-- Drift % (hero number) -->
+    <div id="driftVal" class="f-num" style="top:calc(36% - 50%e); left:calc(50% - 50%e); font-size: 52px;">--</div>
+    <div class="cm-mid" style="top:calc(47% - 50%e); left:calc(50% - 50%e); font-size: 12px;">%</div>
+
+    <!-- Status -->
+    <div id="statusLabel" style="top:calc(54% - 50%e); left:calc(50% - 50%e); font-size: 18px;">--</div>
+
+    <!-- Horizontal separator -->
+    <div class="cm-mid p-hc" style="top:60%;width:70%;height:1px;opacity:0.4"></div>
+
+    <!-- Vertical separator -->
+    <div class="cm-mid p-hc" style="top:62%;width:2px;height:16%;opacity:0.4"></div>
+
+    <!-- Left column: HR -->
+    <div class="cm-mid" style="top:calc(64% - 50%e); left:calc(26% - 50%e); font-size: 11px;">HR</div>
+    <div class="f-num" style="top:calc(71% - 50%e); left:calc(26% - 50%e); font-size: 24px;">
+      <eval input="/Activity/Move/-1/Heartrate/Current" outputFormat="HeartRate_Fourdigits" default="--" />
+    </div>
+
+    <!-- Right column: Pace / Watts -->
+    <div class="cm-mid" style="top:calc(64% - 50%e); left:calc(74% - 50%e); font-size: 11px;">PACE/W</div>
+    <div id="efLabel" class="f-num" style="top:calc(71% - 50%e); left:calc(74% - 50%e); font-size: 24px;">--</div>
+
+    <!-- Bottom row: Countdown + MAF -->
+    <div class="cm-mid" style="top:calc(80% - 50%e); left:calc(26% - 50%e); font-size: 11px;">TIME</div>
+    <div class="f-num" style="top:calc(86% - 50%e); left:calc(26% - 50%e); font-size: 16px;">
+      <eval input="/Zapp/{zapp_index}/Output/countdown" outputFormat="Duration_FourdigitsFixed" default="--" />
+    </div>
+    <div class="cm-mid" style="top:calc(80% - 50%e); left:calc(74% - 50%e); font-size: 11px;">MAF</div>
+    <div class="f-num" style="top:calc(86% - 50%e); left:calc(74% - 50%e); font-size: 16px;">
+      <eval input="/Zapp/{zapp_index}/Output/mafDisplay" default="140" />
+    </div>
+
+    <!-- Hint: down button skips warmup -->
+    <div id="skipHint" class="cm-mid" style="top:calc(94% - 50%e); left:calc(50% - 50%e); font-size: 10px; opacity:0.5;">DOWN TO SKIP</div>
+
+    <!-- Physical button: down = skip warmup -->
+    <:if test="{{ HAS_ON_EVENT }}">
+    <userInput>
+      <pushButton name="down"
+        onClick="$.put('/Zapp/{zapp_index}/Event', 1, null, 'int32');" />
+    </userInput>
+    </:if>
+
+  </div>
+</uiView>

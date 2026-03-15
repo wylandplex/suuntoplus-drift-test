@@ -1,0 +1,8 @@
+{
+  "appSettings": {
+    "testMode": 0,
+    "warmupDuration": 15,
+    "testDuration": 60,
+    "mafTarget": 140
+  }
+}
