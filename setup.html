@@ -1,0 +1,44 @@
+<uiView>
+  <div id="drifttest">
+
+    <!-- Title -->
+    <div class="cm-fg" style="width:100%;height:16%">
+      <div class="cm-mid" style="top:calc(35% - 50%e); left:calc(50% - 50%e); font-size: 12px;">DRIFT TEST</div>
+      <div class="cm-mid" style="top:calc(75% - 50%e); left:calc(50% - 50%e); font-size: 11px;">SETUP</div>
+    </div>
+
+    <!-- Mode selector -->
+    <div class="cm-mid" style="top:calc(28% - 50%e); left:calc(50% - 50%e); font-size: 11px;">MODE</div>
+    <div id="modeName" class="f-num"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 1, null, 'int32');"
+      style="top:calc(38% - 50%e); left:calc(50% - 50%e); font-size: 36px;">PACE</div>
+
+    <!-- Separator -->
+    <div class="cm-mid p-hc" style="top:48%;width:70%;height:1px;opacity:0.4"></div>
+
+    <!-- Manual watts field (visible in WATTS mode) -->
+    <div id="wattsLabel" class="cm-mid"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 3, null, 'int32');"
+      style="top:calc(54% - 50%e); left:calc(50% - 50%e); font-size: 11px;"></div>
+    <div id="wattsValue" class="f-num"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 2, null, 'int32');"
+      style="top:calc(64% - 50%e); left:calc(50% - 50%e); font-size: 32px;"></div>
+
+    <!-- START button -->
+    <div onTap="$.put('/Zapp/{zapp_index}/Event', 4, null, 'int32');"
+      style="top:78%;left:15%;width:70%;height:16%;position:absolute;">
+      <div class="cm-mid" style="top:calc(50% - 50%e); left:calc(50% - 50%e); font-size: 14px;">START</div>
+    </div>
+
+  </div>
+
+  <!-- Physical buttons -->
+  <userInput>
+    <pushButton name="up"
+      onClick="$.put('/Zapp/{zapp_index}/Event', 1, null, 'int32');"
+      onLongPressStart="$.put('/Zapp/{zapp_index}/Event', 2, null, 'int32');" />
+    <pushButton name="down"
+      onClick="$.put('/Zapp/{zapp_index}/Event', 4, null, 'int32');"
+      onLongPressStart="$.put('/Zapp/{zapp_index}/Event', 3, null, 'int32');" />
+  </userInput>
+</uiView>

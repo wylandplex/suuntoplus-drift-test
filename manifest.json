@@ -1,9 +1,9 @@
 {
   "name": "Drift Test",
   "description": "Cardiac decoupling test — MFA drift analysis",
-  "version": "1.0",
+  "version": "1.1",
   "author": "skyfi",
-  "modificationTime": 1773183600,
+  "modificationTime": 1773619200,
   "type": "feature",
   "usage": "workout",
   "in": [
@@ -21,26 +21,43 @@
       "name": "Heartrate",
       "source": "/Activity/Move/-1/Heartrate/Current",
       "type": "subscribe"
+    },
+    {
+      "name": "Zone3Limit",
+      "source": "/Activity/Zones/Heartrate/Zone3/Limit",
+      "type": "subscribe"
+    },
+    {
+      "name": "Ascent",
+      "source": "/Fusion/Altitude/Ascent",
+      "type": "subscribe"
     }
   ],
   "out": [
-    { "name": "driftPct" },
     { "name": "countdown" },
-    { "name": "phase" },
-    { "name": "status" },
-    { "name": "efMetric" },
     { "name": "mafDisplay" }
   ],
   "template": [
-    { "name": "main.html" }
+    { "name": "setup.html" },
+    { "name": "warmup.html" },
+    { "name": "test.html" },
+    { "name": "done.html" }
   ],
   "settings": [
     {
-      "shownName": "Mode (0=Run, 1=Bike)",
+      "shownName": "Mode (0=Pace, 1=Watts)",
       "path": "appSettings.testMode",
       "type": "int",
       "min": 0,
       "max": 1,
+      "inputType": "slider"
+    },
+    {
+      "shownName": "Manual Watts",
+      "path": "appSettings.manualWatts",
+      "type": "int",
+      "min": 50,
+      "max": 500,
       "inputType": "slider"
     },
     {

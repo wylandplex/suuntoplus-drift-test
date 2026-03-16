@@ -1,0 +1,61 @@
+<uiView>
+  <div id="drifttest">
+
+    <!-- Title -->
+    <div class="cm-fg" style="width:100%;height:14%">
+      <div class="cm-mid" style="top:calc(35% - 50%e); left:calc(50% - 50%e); font-size: 12px;">DRIFT TEST</div>
+      <div class="cm-mid" style="top:calc(75% - 50%e); left:calc(50% - 50%e); font-size: 14px;">COMPLETE</div>
+    </div>
+
+    <!-- Drift % (hero) -->
+    <div id="driftFinal" class="f-num" style="top:calc(26% - 50%e); left:calc(50% - 50%e); font-size: 64px;">--</div>
+    <div class="cm-mid" style="top:calc(37% - 50%e); left:calc(50% - 50%e); font-size: 12px;">% DRIFT</div>
+
+    <!-- Verdict -->
+    <div id="verdictLabel" style="top:calc(44% - 50%e); left:calc(50% - 50%e); font-size: 16px;">--</div>
+
+    <!-- Separator -->
+    <div class="cm-mid p-hc" style="top:50%;width:70%;height:1px;opacity:0.4"></div>
+
+    <!-- 1st half column -->
+    <div class="cm-mid" style="top:calc(54% - 50%e); left:calc(30% - 50%e); font-size: 12px;">1st HALF</div>
+    <div class="cm-mid" style="top:calc(59% - 50%e); left:calc(30% - 50%e); font-size: 10px; opacity:0.5;">HR</div>
+    <div id="hr1Label" class="f-num" style="top:calc(65% - 50%e); left:calc(30% - 50%e); font-size: 26px;">--</div>
+    <div class="cm-mid"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 6, null, 'int32');"
+      style="top:calc(72% - 50%e); left:calc(30% - 50%e); font-size: 10px; opacity:0.5;">PACE/W</div>
+    <div id="metric1Label" class="f-num"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 5, null, 'int32');"
+      style="top:calc(78% - 50%e); left:calc(30% - 50%e); font-size: 22px;">--</div>
+
+    <!-- 2nd half column -->
+    <div class="cm-mid" style="top:calc(54% - 50%e); left:calc(70% - 50%e); font-size: 12px;">2nd HALF</div>
+    <div class="cm-mid" style="top:calc(59% - 50%e); left:calc(70% - 50%e); font-size: 10px; opacity:0.5;">HR</div>
+    <div id="hr2Label" class="f-num" style="top:calc(65% - 50%e); left:calc(70% - 50%e); font-size: 26px;">--</div>
+    <div class="cm-mid"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 8, null, 'int32');"
+      style="top:calc(72% - 50%e); left:calc(70% - 50%e); font-size: 10px; opacity:0.5;">PACE/W</div>
+    <div id="metric2Label" class="f-num"
+      onTap="$.put('/Zapp/{zapp_index}/Event', 7, null, 'int32');"
+      style="top:calc(78% - 50%e); left:calc(70% - 50%e); font-size: 22px;">--</div>
+
+    <!-- Vertical separator between columns -->
+    <div class="cm-mid p-hc" style="top:54%;width:1px;height:30%;opacity:0.3"></div>
+
+    <!-- Terrain / ascent -->
+    <div class="cm-mid p-hc" style="top:84%;width:70%;height:1px;opacity:0.4"></div>
+    <div class="cm-mid" style="top:calc(87% - 50%e); left:calc(50% - 50%e); font-size: 10px; opacity:0.5;">ASCENT 1st | 2nd</div>
+    <div id="ascentLabel" class="cm-mid" style="top:calc(92% - 50%e); left:calc(50% - 50%e); font-size: 14px;">-</div>
+
+  </div>
+
+  <!-- Physical buttons (active for manual watts editing) -->
+  <userInput>
+    <pushButton name="up"
+      onClick="$.put('/Zapp/{zapp_index}/Event', 5, null, 'int32');"
+      onLongPressStart="$.put('/Zapp/{zapp_index}/Event', 6, null, 'int32');" />
+    <pushButton name="down"
+      onClick="$.put('/Zapp/{zapp_index}/Event', 7, null, 'int32');"
+      onLongPressStart="$.put('/Zapp/{zapp_index}/Event', 8, null, 'int32');" />
+  </userInput>
+</uiView>

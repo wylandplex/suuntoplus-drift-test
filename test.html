@@ -1,0 +1,36 @@
+<uiView>
+  <div id="drifttest">
+
+    <!-- Half label -->
+    <div class="cm-fg" style="width:100%;height:16%">
+      <div class="cm-mid" style="top:calc(35% - 50%e); left:calc(50% - 50%e); font-size: 12px;">DRIFT TEST</div>
+      <div id="halfLabel" class="cm-mid" style="top:calc(75% - 50%e); left:calc(50% - 50%e); font-size: 14px;">1st HALF</div>
+    </div>
+
+    <!-- HR (hero) -->
+    <div class="cm-mid" style="top:calc(22% - 50%e); left:calc(50% - 50%e); font-size: 11px;">HR</div>
+    <div id="hrValue" class="f-num" style="top:calc(36% - 50%e); left:calc(50% - 50%e); font-size: 56px;">
+      <eval input="/Activity/Move/-1/Heartrate/Current" outputFormat="HeartRate_Fourdigits" default="--" />
+    </div>
+
+    <!-- MAF target -->
+    <div class="cm-mid" style="top:calc(47% - 50%e); left:calc(50% - 50%e); font-size: 11px; opacity:0.5;">
+      MAF <eval input="/Zapp/{zapp_index}/Output/mafDisplay" outputFormat="HeartRate_Fourdigits" default="--" />
+    </div>
+    <!-- Separator -->
+    <div class="cm-mid p-hc" style="top:54%;width:70%;height:1px;opacity:0.4"></div>
+
+    <!-- HR warning (below separator, hidden by default) -->
+    <div id="hrWarn" style="top:calc(52% - 50%e); left:calc(50% - 50%e); font-size: 18px; visibility:hidden;">SLOW DOWN</div>
+
+    <!-- Pace/Watts + Countdown side by side -->
+    <div class="cm-mid" style="top:calc(59% - 50%e); left:calc(30% - 50%e); font-size: 11px;">PACE/W</div>
+    <div id="efLabel" class="f-num" style="top:calc(68% - 50%e); left:calc(30% - 50%e); font-size: 28px;">--</div>
+
+    <div class="cm-mid" style="top:calc(59% - 50%e); left:calc(70% - 50%e); font-size: 11px;">REMAINING</div>
+    <div class="f-num" style="top:calc(68% - 50%e); left:calc(70% - 50%e); font-size: 22px;">
+      <eval input="/Zapp/{zapp_index}/Output/countdown" outputFormat="Duration_FourdigitsFixed" default="--" />
+    </div>
+
+  </div>
+</uiView>
