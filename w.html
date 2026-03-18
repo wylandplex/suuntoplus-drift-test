@@ -1,0 +1,24 @@
+<uiView>
+  <div id="suuntoplus">
+    <div class="cm-fg" style="width:100%;height:20%">
+      <div class="sp-t-m p-hc" style="top:calc(60% - 50%e)">WARMUP</div>
+    </div>
+    <div class="sp-d-l f-num p-hc" style="top:calc(38% - 50%e)">
+      <eval input="/Zapp/{zapp_index}/Output/countdown" outputFormat="Duration_FourdigitsFixed" default="--" />
+    </div>
+    <div class="cm-fg p-hc" style="top:52%;width:70%;height:1px;opacity:0.4"></div>
+    <div class="cm-mid" style="top:calc(58% - 50%e);left:calc(30% - 50%e)">HR</div>
+    <div class="sp-d-s f-num" style="top:calc(67% - 50%e);left:calc(30% - 50%e)">
+      <eval input="/Activity/Move/-1/Heartrate/Current" outputFormat="HeartRate_Fourdigits" default="--" />
+    </div>
+    <div class="cm-mid" style="top:calc(58% - 50%e);left:calc(70% - 50%e)">MAF</div>
+    <div class="sp-d-s f-num" style="top:calc(67% - 50%e);left:calc(70% - 50%e)">
+      <eval input="/Zapp/{zapp_index}/Output/maf" outputFormat="HeartRate_Fourdigits" default="--" />
+    </div>
+    <div class="sp-t-s p-hc" style="top:calc(82% - 50%e);opacity:0.5">TAP TO SKIP</div>
+    <div onTap="$.put('/Zapp/{zapp_index}/Event', 5, null, 'int32');" style="top:75%;left:0;width:100%;height:25%;position:absolute"></div>
+    <userInput>
+      <pushButton name="down" onClick="$.put('/Zapp/{zapp_index}/Event', 5, null, 'int32');" />
+    </userInput>
+  </div>
+</uiView>

@@ -1,0 +1,18 @@
+<uiView>
+  <div id="suuntoplus">
+    <div class="cm-fg" style="width:100%;height:20%">
+      <div id="hl" class="sp-t-m p-hc" style="top:calc(60% - 50%e)">-</div>
+    </div>
+    <div class="cm-mid" style="top:calc(25% - 50%e);left:calc(50% - 50%e)">HR</div>
+    <div class="sp-d-l f-num p-hc" style="top:calc(40% - 50%e)">
+      <eval input="/Activity/Move/-1/Heartrate/Current" outputFormat="HeartRate_Fourdigits" default="--" />
+    </div>
+    <div class="cm-fg p-hc" style="top:54%;width:70%;height:1px;opacity:0.4"></div>
+    <div class="cm-mid" style="top:calc(60% - 50%e);left:calc(30% - 50%e)">PACE/W</div>
+    <div id="el" class="sp-d-s f-num" style="top:calc(69% - 50%e);left:calc(30% - 50%e)">-</div>
+    <div class="cm-mid" style="top:calc(60% - 50%e);left:calc(70% - 50%e)">LEFT</div>
+    <div class="sp-d-s f-num" style="top:calc(69% - 50%e);left:calc(70% - 50%e)">
+      <eval input="/Zapp/{zapp_index}/Output/countdown" outputFormat="Duration_FourdigitsFixed" default="--" />
+    </div>
+  </div>
+</uiView>

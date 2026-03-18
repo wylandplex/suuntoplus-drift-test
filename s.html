@@ -1,0 +1,21 @@
+<uiView>
+  <div id="suuntoplus">
+    <div class="cm-fg" style="width:100%;height:20%">
+      <div class="sp-t-m p-hc" style="top:calc(60% - 50%e)">DRIFT TEST</div>
+    </div>
+    <div class="cm-mid" style="top:calc(25% - 50%e);left:calc(50% - 50%e)">MODE</div>
+    <div id="mn" class="sp-d-s cm-mid" onTap="$.put('/Zapp/{zapp_index}/Event', 1, null, 'int32');" style="top:calc(34% - 50%e);left:calc(50% - 50%e)">-</div>
+    <div class="cm-fg p-hc" style="top:42%;width:70%;height:1px;opacity:0.4"></div>
+    <div class="cm-mid" style="top:calc(48% - 50%e);left:calc(30% - 50%e)">MAF</div>
+    <div id="mv" class="sp-d-s f-num" onTap="$.put('/Zapp/{zapp_index}/Event', 2, null, 'int32');" style="top:calc(57% - 50%e);left:calc(30% - 50%e)">-</div>
+    <div id="wl" class="cm-mid" style="top:calc(48% - 50%e);left:calc(70% - 50%e)">-</div>
+    <div id="wv" class="sp-d-s f-num" onTap="$.put('/Zapp/{zapp_index}/Event', 3, null, 'int32');" style="top:calc(57% - 50%e);left:calc(70% - 50%e)">-</div>
+    <div onTap="$.put('/Zapp/{zapp_index}/Event', 4, null, 'int32');" style="top:75%;left:15%;width:70%;height:18%;position:absolute">
+      <div class="sp-t-m p-hc" style="top:calc(50% - 50%e)">START</div>
+    </div>
+    <userInput>
+      <pushButton name="up" onClick="$.put('/Zapp/{zapp_index}/Event', 1, null, 'int32');" />
+      <pushButton name="down" onClick="$.put('/Zapp/{zapp_index}/Event', 4, null, 'int32');" />
+    </userInput>
+  </div>
+</uiView>

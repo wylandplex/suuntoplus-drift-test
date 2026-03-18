@@ -1,37 +1,23 @@
 {
   "name": "Drift Test",
-  "description": "Cardiac decoupling test",
-  "version": "1.0",
+  "version": "2.0",
   "author": "skyfi",
-  "modificationTime": 1773619200,
+  "description": "Cardiac drift test",
   "type": "feature",
   "usage": "workout",
+  "modificationTime": 1773619200,
   "in": [
-    {
-      "name": "Speed",
-      "source": "Activity/Move/-1/Speed/Current",
-      "type": "subscribe"
-    },
-    {
-      "name": "Power",
-      "source": "Activity/Move/-1/Power/Current",
-      "type": "subscribe"
-    },
-    {
-      "name": "Heartrate",
-      "source": "Activity/Move/-1/Heartrate/Current",
-      "type": "subscribe"
-    }
+    { "name": "Heartrate", "source": "Activity/Move/-1/Heartrate/Current", "type": "subscribe" },
+    { "name": "Speed", "source": "Activity/Move/-1/Speed/Current", "type": "subscribe" }
   ],
   "out": [
     { "name": "countdown" },
-    { "name": "mafDisplay" },
-    { "name": "lapTrigger" }
+    { "name": "maf" }
   ],
   "template": [
-    { "name": "setup.html" },
-    { "name": "warmup.html" },
-    { "name": "test.html" },
-    { "name": "done.html" }
+    { "name": "s.html" },
+    { "name": "w.html" },
+    { "name": "t.html" },
+    { "name": "d.html" }
   ]
 }
