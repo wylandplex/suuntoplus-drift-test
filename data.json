@@ -1,0 +1,10 @@
+{
+  "appSettings": {
+    "testMode": 0,
+    "manualWatts": 150,
+    "warmupDuration": 15,
+    "testDuration": 60,
+    "mafTarget": 140,
+    "debugMode": 1
+  }
+}
